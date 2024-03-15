@@ -1,17 +1,14 @@
 import UIElement from "../contracts/UIElement";
-import { blocks, pathBlocks, fileExtensionBlocks } from "../data/Blocks";
 import { DraggableItem } from "./DraggableItem";
 import { DraggableItemContainer } from "./DraggableItemContainer";
 
 class MapGrid extends UIElement {
-    private draggableBlocks: BlockHolder;
 
-    constructor() {
+    constructor(elementId: string = '#map-grid') {
         super();
-        this.element = document.querySelector('.map-grid') as HTMLElement;
-        this.draggableBlocks = blocks;
-        
-        this.initialize();
+        this.element = document.querySelector(elementId) as HTMLElement;
+
+        this.setupEventListeners();
     }
 
     /**
@@ -39,39 +36,16 @@ class MapGrid extends UIElement {
     }
 
     /**
-     * Initializes the MapGrid instance.
-     */
-    private initialize() {
-        // this.createDraggableItems();
-        // this.setupEventListeners();
-    }
-
-    /**
-     * Creates draggable items dynamically.
-     */
-    private createDraggableItems() {
-        for (const type in blocks) {
-            const images = blocks[type];
-            const container = new DraggableItemContainer(type);
-            
-            images.forEach((image: string) => {
-                const imagePathUrl = pathBlocks + image + fileExtensionBlocks;
-                container.addDraggableItem(new DraggableItem(type, imagePathUrl))
-            });
-            this.element.parentNode!.insertBefore(container.getHTMLElement(), this.element.nextSibling);
-        }
-    }
-
-    /**
      * Sets up event listeners for drag and drop events and grid size selection change.
      */
-    private setupEventListeners() {
+    private setupEventListeners(): void {
         this.element.addEventListener('dragover', (event) => {
             event.preventDefault();
         });
 
         this.element.addEventListener('drop', (event) => {
             event.preventDefault();
+            console.log('sth');
             const data = JSON.parse(event.dataTransfer.getData('text/plain')) as { imageUrl: string, type: string };
             const target = event.target as HTMLElement;
             if (target.classList.contains('box')) {
