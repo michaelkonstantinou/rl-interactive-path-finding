@@ -1,6 +1,6 @@
-import UIElement from "../contracts/ui-element";
+import UIElement from "../contracts/UIElement";
 
-class DraggableItem extends UIElement {
+export class DraggableItem extends UIElement {
     private type: string;
     private imagePathUrl: string;
 
@@ -32,5 +32,3 @@ class DraggableItem extends UIElement {
         });
     }
 }
-
-export default DraggableItem;

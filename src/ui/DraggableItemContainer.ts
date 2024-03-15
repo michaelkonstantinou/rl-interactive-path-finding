@@ -1,7 +1,7 @@
-import UIElement from "../contracts/ui-element";
-import DraggableItem from "./DraggableItem";
+import UIElement from "../contracts/UIElement";
+import { DraggableItem } from "./DraggableItem";
 
-class DraggableItemContainer extends UIElement {
+export class DraggableItemContainer extends UIElement {
     private type: string;
 
     constructor(type: string) {
@@ -42,5 +42,3 @@ class DraggableItemContainer extends UIElement {
         this.element = container;
     }
 }
-
-export default DraggableItemContainer;
