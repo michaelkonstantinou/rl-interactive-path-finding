@@ -36,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   blocks: () => (/* binding */ blocks),\n/* harmony export */   fileExtensionBlocks: () => (/* binding */ fileExtensionBlocks),\n/* harmony export */   pathBlocks: () => (/* binding */ pathBlocks)\n/* harmony export */ });\nvar pathBlocks = 'assets/blocks/tile_';\nvar fileExtensionBlocks = '.png';\nvar blocks = {\n    'Wall': ['0044', '0045', '0046', '0047', '0056', '0058', '0068', '0069', '0070', '0071'],\n    'Road': ['0000', '0001', '0002'],\n    'Coin': ['0093', '0131']\n};\n\n\n//# sourceURL=webpack://rl-interactive-path-finding/./src/data/Blocks.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   blocks: () => (/* binding */ blocks),\n/* harmony export */   fileExtensionBlocks: () => (/* binding */ fileExtensionBlocks),\n/* harmony export */   pathBlocks: () => (/* binding */ pathBlocks)\n/* harmony export */ });\nvar pathBlocks = 'assets/blocks/tile_';\nvar fileExtensionBlocks = '.png';\nvar blocks = {\n    'Road': ['0000', '0001', '0002'],\n    'Coin': ['0093', '0131'],\n    'Wall': ['0132', '0133', '0134', '0135', '0136', '0137', '0068', '0139', '0140', '0141', '0142', '0143', '0144']\n};\n\n\n//# sourceURL=webpack://rl-interactive-path-finding/./src/data/Blocks.ts?");
 
 /***/ }),
 
