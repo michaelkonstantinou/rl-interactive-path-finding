@@ -42,8 +42,8 @@ class MapGrid extends UIElement {
      * Initializes the MapGrid instance.
      */
     private initialize() {
-        this.createDraggableItems();
-        this.setupEventListeners();
+        // this.createDraggableItems();
+        // this.setupEventListeners();
     }
 
     /**

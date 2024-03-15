@@ -15,7 +15,7 @@ export class DraggableItem extends UIElement {
 
     private createDomElement(): void {
         const draggableItem = document.createElement('div');
-        draggableItem.classList.add('draggable', 'box', 'mt-2');
+        draggableItem.classList.add('draggable', 'box', 'mt-2', 'me-2');
         draggableItem.draggable = true;
         draggableItem.dataset.type = this.type;
         draggableItem.dataset.imageUrl = this.imagePathUrl;
