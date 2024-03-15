@@ -36,6 +36,14 @@ class MapGrid extends UIElement {
     }
 
     /**
+     * Toggle the class that is responsible for showing the grid boxes with borders or merged as a whole
+     */
+    public toggleGridBorders(): void
+    {
+        this.element.classList.toggle('hidden-borders');
+    }
+
+    /**
      * Sets up event listeners for drag and drop events and grid size selection change.
      */
     private setupEventListeners(): void {

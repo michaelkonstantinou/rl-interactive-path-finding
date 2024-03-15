@@ -26,7 +26,7 @@ export class MapToolbox extends UIElement {
                 const imagePathUrl = pathBlocks + image + fileExtensionBlocks;
                 container.addDraggableItem(new DraggableItem(type, imagePathUrl))
             });
-            this.element.parentNode!.insertBefore(container.getHTMLElement(), this.element.nextSibling);
+            this.element.appendChild(container.getHTMLElement());
         }
     }
 }

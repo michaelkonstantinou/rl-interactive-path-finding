@@ -1,5 +1,7 @@
 import MapGrid from "./ui/MapGrid";
 import { MapToolbox } from "./ui/MapToolbox";
+import { GridBorderOption } from "./ui/options/GridBorderOption";
+import { GridSizeOption } from "./ui/options/GridSizeOption";
 
 document.addEventListener('DOMContentLoaded', () => {   
     // Init the Map Grid with default values
@@ -9,9 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const mapToolbox = new MapToolbox();
 
     // Grid Size Selector - Get User's width and height preferences and update the grid
-    const gridSizeSelect = document.getElementById('grid-size-select') as HTMLSelectElement;
-    gridSizeSelect.addEventListener('change', () => {
-        const [width, height] = gridSizeSelect.value.split('x').map(Number);
-        mapGrid.generateGrid(width, height);
-    });
+    const gridSizeOption = new GridSizeOption('#grid-size-select', mapGrid);
+    const gridBorderOption = new GridBorderOption('#grid-border-select', mapGrid);
 });

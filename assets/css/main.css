@@ -1,7 +1,15 @@
     /* Additional custom styles */
     #map-grid {
         display: grid;
+        grid-gap: 5px;
+    }
+
+    #map-grid.hidden-borders {
         grid-gap: 0px;
+    }
+
+    #map-grid.hidden-borders > .box{
+        border: 0px solid #ccc !important;
     }
 
     .map-grid-repeat-4 {
