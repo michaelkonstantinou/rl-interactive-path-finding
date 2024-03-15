@@ -1,0 +1,27 @@
+{
+  "name": "rl-interactive-path-finding",
+  "version": "1.0.0",
+  "description": "An interactive Reinforcement Learning path finding project",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelkonstantinou/rl-interactive-path-finding.git"
+  },
+  "keywords": [
+    "reinforcement-learning",
+    "typescript",
+    "path-finding"
+  ],
+  "author": "Michael Konstantinou",
+  "bugs": {
+    "url": "https://github.com/michaelkonstantinou/rl-interactive-path-finding/issues"
+  },
+  "homepage": "https://github.com/michaelkonstantinou/rl-interactive-path-finding#readme",
+  "dependencies": {
+    "typescript": "^5.4.2"
+  },
+  "devDependencies": {
+    "ts-loader": "^9.5.1",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4"
+  }
+}
