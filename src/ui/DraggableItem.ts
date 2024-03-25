@@ -1,6 +1,7 @@
-import UIElement from "../contracts/UIElement";
+import UIElement from "../contracts/ui/UIElement";
+import { UIRenderableElement } from "../contracts/ui/UIRenderableElement";
 
-export class DraggableItem extends UIElement {
+export class DraggableItem extends UIRenderableElement {
     private type: string;
     private imagePathUrl: string;
 
@@ -9,11 +10,11 @@ export class DraggableItem extends UIElement {
         this.type = type;
         this.imagePathUrl = imagePathUrl;
 
-        this.createDomElement();
+        this.render();
         this.addDragStartListener();
     }
 
-    private createDomElement(): void {
+    public render(): void {
         const draggableItem = document.createElement('div');
         draggableItem.classList.add('draggable', 'box', 'mt-2', 'me-2');
         draggableItem.draggable = true;

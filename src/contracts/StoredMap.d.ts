@@ -1,9 +1,6 @@
-interface StoredMapBlock {
-    type: string;
-    image: string;
-}
+import { StoredMapBlock } from "./StoredMapBlock";
 
-interface StoredMap {
+export interface StoredMap {
     width: number;
     height: number;
     blocks: StoredMapBlock[];

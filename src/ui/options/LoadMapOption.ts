@@ -1,8 +1,8 @@
-import { UserOption } from "../../contracts/UserOption";
+import { UIUserOption } from "../../contracts/ui/UIUserOption";
 import { storedMaps } from "../../data/StoredMaps";
 import MapGrid from "../MapGrid";
 
-export class LoadMapOption extends UserOption {
+export class LoadMapOption extends UIUserOption {
     constructor(elementId: string, mapGrid: MapGrid) {
         super(elementId);
         this.onChange(() => {

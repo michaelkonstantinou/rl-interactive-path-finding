@@ -1,23 +1,22 @@
-import UIElement from "../contracts/UIElement";
+import UIElement from "../contracts/ui/UIElement";
+import { UIRenderableElement } from "../contracts/ui/UIRenderableElement";
 import { blocks, fileExtensionBlocks, pathBlocks } from "../data/Blocks";
 import { DraggableItem } from "./DraggableItem";
 import { DraggableItemContainer } from "./DraggableItemContainer";
 
-export class MapToolbox extends UIElement {
-    private draggableBlocks: BlockHolder;
+export class MapToolbox extends UIRenderableElement {
 
     constructor(elementId: string = '#map-toolbox') {
         super();
-        this.element = document.querySelector(elementId) as HTMLElement;
-        this.draggableBlocks = blocks;
+        this.setElementFromId(elementId);
 
-        this.createDraggableItems();
+        this.render();
     }
 
     /**
      * Creates draggable items dynamically.
      */
-    private createDraggableItems(): void {
+    public render(): void {
         for (const type in blocks) {
             const images = blocks[type];
             const container = new DraggableItemContainer(type);

@@ -1,11 +1,11 @@
 import UIElement from "./UIElement";
 
-export abstract class UserOption extends UIElement {
+export abstract class UIUserOption extends UIElement {
     protected value: string|number;
 
     constructor(elementId: string) {
         super();
-        this.element = document.querySelector(elementId) as HTMLElement;
+        this.setElementFromId(elementId);
     }
 
     protected onChange(callback: (this: HTMLElement, ev: Event) => any): void

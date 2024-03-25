@@ -1,14 +1,15 @@
-import UIElement from "../contracts/UIElement";
+import UIElement from "../contracts/ui/UIElement";
+import { UIRenderableElement } from "../contracts/ui/UIRenderableElement";
 import { DraggableItem } from "./DraggableItem";
 
-export class DraggableItemContainer extends UIElement {
+export class DraggableItemContainer extends UIRenderableElement {
     private type: string;
 
     constructor(type: string) {
         super();
         this.type = type;
 
-        this.createDomElement();
+        this.render();
     }
 
     public addDraggableItem(item: DraggableItem): void {
@@ -23,7 +24,7 @@ export class DraggableItemContainer extends UIElement {
      * - Div container
      * -- Draggable items holder here --
      */
-    private createDomElement(): void {
+    public render(): void {
         const container = document.createElement('div');
         container.classList.add('col-lg-3', 'col-md-6', 'col-sm-12');
 

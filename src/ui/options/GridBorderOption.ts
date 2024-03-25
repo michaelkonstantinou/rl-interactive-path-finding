@@ -1,7 +1,7 @@
-import { UserOption } from "../../contracts/UserOption";
+import { UIUserOption } from "../../contracts/ui/UIUserOption";
 import MapGrid from "../MapGrid";
 
-export class GridBorderOption extends UserOption {
+export class GridBorderOption extends UIUserOption {
 
     constructor(elementId: string, mapGrid: MapGrid) {
         super(elementId);

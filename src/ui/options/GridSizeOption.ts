@@ -1,7 +1,7 @@
-import { UserOption } from "../../contracts/UserOption";
+import { UIUserOption } from "../../contracts/ui/UIUserOption";
 import MapGrid from "../MapGrid";
 
-export class GridSizeOption extends UserOption {
+export class GridSizeOption extends UIUserOption {
     private width: number;
     private height: number;
 

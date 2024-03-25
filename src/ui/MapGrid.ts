@@ -1,20 +1,19 @@
-import UIElement from "../contracts/UIElement";
-import { fileExtensionBlocks, pathBlocks } from "../data/Blocks";
-import { DraggableItem } from "./DraggableItem";
-import { DraggableItemContainer } from "./DraggableItemContainer";
+import { StoredMap } from "../contracts/StoredMap";
+import UIElement from "../contracts/ui/UIElement";
+import { MapBox } from "./MapBox";
 import { MapCode } from "./MapCode";
 
 class MapGrid extends UIElement {
 
     // Contains the map grid boxes that are automatically generated
-    private boxes: HTMLElement[];
+    private boxes: MapBox[];
 
     // Contains the code representation of the map grid
     private mapCode: MapCode;
 
     constructor(elementId: string = '#map-grid') {
         super();
-        this.element = document.querySelector(elementId) as HTMLElement;
+        this.setElementFromId(elementId);
         this.mapCode = new MapCode();
 
         this.setupEventListeners();
@@ -40,9 +39,8 @@ class MapGrid extends UIElement {
         this.boxes = [];
         for (let i = 0; i < width; i++) {
             for (let j = 0; j < height; j++) {
-                const box = document.createElement('div');
-                box.classList.add('box');
-                this.element.appendChild(box);
+                const box: MapBox = new MapBox(i * width + j);
+                this.element.appendChild(box.getHTMLElement());
                 this.boxes.push(box);
             }
         }
@@ -61,8 +59,8 @@ class MapGrid extends UIElement {
 
         // Iterate boxes and fill the map's values
         for (let i in this.boxes) {
-            this.boxes[i].style.backgroundImage = storedMap.blocks[i].image;
-            this.boxes[i].dataset.type = storedMap.blocks[i].type;
+            this.boxes[i].setImage(storedMap.blocks[i].image);
+            this.boxes[i].setType(storedMap.blocks[i].type);
         }
 
         // Update the code representation
@@ -88,12 +86,13 @@ class MapGrid extends UIElement {
         this.element.addEventListener('drop', (event) => {
             event.preventDefault();
             const data = JSON.parse(event.dataTransfer.getData('text/plain')) as { imageUrl: string, type: string };
-            const target = event.target as HTMLElement;
+            const target: HTMLElement = <HTMLElement>event.target;
             if (target.classList.contains('box')) {
 
                 // Set the box's values to reflect the draggable item's values
-                target.style.backgroundImage = `url(${data.imageUrl})`;
-                target.dataset.type = data.type;
+                const targetBox: MapBox = this.boxes[target.id];
+                targetBox.setImage(data.imageUrl);
+                targetBox.setType(data.type);
 
                 // Update the code representation
                 this.mapCode.generate(this.boxes);
