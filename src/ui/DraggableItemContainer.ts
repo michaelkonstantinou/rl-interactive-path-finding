@@ -25,7 +25,7 @@ export class DraggableItemContainer extends UIElement {
      */
     private createDomElement(): void {
         const container = document.createElement('div');
-        container.classList.add('col-md-6', 'col-sm-12');
+        container.classList.add('col-lg-3', 'col-md-6', 'col-sm-12');
 
         // Create title
         const title = document.createElement('h4');
